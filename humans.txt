@@ -1,0 +1,13 @@
+/* TEAM */
+Name: Subash Niroula
+Role: Lead Software Engineer
+Location: Tokyo, Japan
+GitHub: https://github.com/subash1999
+LinkedIn: https://www.linkedin.com/in/subash-niroula-9a2734181/
+
+/* SITE */
+Built: April 2026
+Standards: HTML5, CSS3, ES6
+Tools: HTML, CSS, JavaScript
+Hosting: GitHub Pages
+Design: Dark mode, responsive, bilingual (EN/JP)

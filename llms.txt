@@ -1,0 +1,31 @@
+# Subash Niroula — Portfolio
+
+> Lead Software Engineer in Tokyo. Full-stack developer with 6+ years building enterprise products, microservices, and mobile apps.
+
+## Main Page
+- [Portfolio](https://subash1999.github.io): Full portfolio with experience timeline, skills, projects, education, and contact info. Bilingual (English/Japanese).
+
+## GitHub Profile
+- [GitHub](https://github.com/subash1999): Profile README with tech stack, stats, and featured work.
+
+## Projects
+- [Slack HR Bot](https://github.com/subash1999/slack-hr-bot): Slack-based attendance, leave, payroll system. TypeScript + Google Apps Script. $0/month infrastructure.
+- [Loan Calculation App](https://github.com/subash1999/loan-calculation-app): Multi-org loan management with daily interest calculation. Next.js + PostgreSQL + MUI.
+- [Golden Sungava Homepage](https://github.com/subash1999/golden-sungava-homepage): Company homepage. Next.js 15 + Supabase + Tailwind CSS.
+- [Ride Sharing Platform](https://github.com/nepal-ride-sharing-app): Microservices ride-sharing with React Native apps + Express.js APIs.
+- [Thermal Print Bridge](https://github.com/narbada-madhusudhan/nme-print-bridge): Lightweight Go thermal printer bridge for web POS. Single binary, zero deps.
+- [Breast Cancer ML Prediction](https://github.com/subash1999/NEC-Study-and-Analysis-of-Breast-Cancer-Using-Genomics): ML pipeline for breast cancer prediction from microarray gene data. 90% test accuracy.
+- [DNA Mutation Detection](https://github.com/subash1999/ERASMUS-breast-cancer-detection-by-finding-mutation-in-DNA-sequence): ERASMUS research — breast cancer detection via DNA mutation analysis.
+- [Student Information System](https://github.com/subash1999/Student_Information_System): JavaFX desktop app for student results and marksheet generation.
+
+## Skills
+Languages: TypeScript, JavaScript, Java, Python, Go, PHP, Dart
+Frontend: React, Next.js, Angular, React Native, Expo, Flutter, Tailwind CSS
+Backend: Spring Boot, Node.js, Express, Hono, Django, Laravel
+Database: MySQL, PostgreSQL, MSSQL, DynamoDB, Supabase
+Cloud/DevOps: AWS (S3, EC2, Lambda, CloudWatch), Docker, Jenkins, Cloudflare Workers, Vercel, GitHub Actions
+Other: Camunda BPMN, Playwright, MUI, Live2D, Rive
+
+## Contact
+- [LinkedIn](https://www.linkedin.com/in/subash-niroula-9a2734181/)
+- Email: subash.niroula4455@gmail.com
