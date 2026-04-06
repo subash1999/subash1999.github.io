@@ -36,4 +36,4 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-Sitemap: https://subash1999.github.io/sitemap.xml
+Sitemap: https://subashn.com.np/sitemap.xml

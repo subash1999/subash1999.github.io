@@ -3,7 +3,7 @@
 > Lead Software Engineer in Tokyo. Full-stack developer with 6+ years building enterprise products, microservices, and mobile apps.
 
 ## Main Page
-- [Portfolio](https://subash1999.github.io): Full portfolio with experience timeline, skills, projects, education, and contact info. Bilingual (English/Japanese).
+- [Portfolio](https://subashn.com.np): Full portfolio with experience timeline, skills, projects, education, and contact info. Bilingual (English/Japanese).
 
 ## GitHub Profile
 - [GitHub](https://github.com/subash1999): Profile README with tech stack, stats, and featured work.
