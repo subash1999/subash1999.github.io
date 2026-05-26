@@ -1,24 +1,6 @@
 #!/usr/bin/env python3
-"""Bake index.template.html → index.html with dynamic values.
-
-Tokens replaced:
-  {{YEARS_EXP}}          — years since CAREER_START (env), e.g. "6+"
-  {{YEARS_AXA}}          — formatted: "Sep 2023 — Present (X+ years)"
-  {{GH_REPOS}}           — public repo count via api.github.com
-  {{GH_STARS}}           — sum of stargazers across own public repos
-  {{GH_LATEST_PUSH_REL}} — relative time of latest push, e.g. "2d ago"
-  {{MEDIUM_COUNT}}       — number of items in Medium RSS
-  {{MEDIUM_POSTS_HTML}}  — <li> list of 5 most-recent Medium posts
-  {{LAST_UPDATED}}       — today's date, ISO format
-
-Inputs (env):
-  CAREER_START   — ISO date (e.g. 2019-09-01)
-  AXA_HIRE       — ISO date (e.g. 2023-09-16)
-  GH_USER        — GitHub username (e.g. subash1999)
-  MEDIUM_HANDLE  — Medium handle without @ (e.g. subash.niroula4455)
-  GH_TOKEN       — optional; GitHub Actions secrets.GITHUB_TOKEN. Boosts API rate limit.
-"""
-import os, re, json, datetime, urllib.request
+"""Bake index.template.html → index.html with dynamic values."""
+import os, re, json, datetime, urllib.request, urllib.parse
 from xml.etree import ElementTree as ET
 
 CAREER_START = datetime.date.fromisoformat(os.environ['CAREER_START'])
@@ -28,34 +10,36 @@ MEDIUM_HANDLE = os.environ['MEDIUM_HANDLE']
 GH_TOKEN     = os.environ.get('GH_TOKEN', '')
 TODAY        = datetime.date.today()
 
+BROWSER_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+
 def years_plus(start):
     years = (TODAY - start).days / 365.25
     return f'{int(years)}+'
 
 def http_get(url, headers=None):
-    req = urllib.request.Request(url, headers=headers or {})
-    return urllib.request.urlopen(req, timeout=20).read()
+    h = {'User-Agent': BROWSER_UA, 'Accept': '*/*'}
+    if headers:
+        h.update(headers)
+    req = urllib.request.Request(url, headers=h)
+    return urllib.request.urlopen(req, timeout=30).read()
 
 def gh_api(path):
-    h = {'Accept': 'application/vnd.github+json', 'User-Agent': 'bake-portfolio'}
+    h = {'Accept': 'application/vnd.github+json'}
     if GH_TOKEN:
         h['Authorization'] = f'Bearer {GH_TOKEN}'
     return json.loads(http_get(f'https://api.github.com{path}', h))
 
-# ---- Compute tokens ----
+# ---- Compute time-based tokens ----
 years_exp = years_plus(CAREER_START)
-years_axa_int = int((TODAY - AXA_HIRE).days / 365.25)
-years_axa_plus = f'{years_axa_int}+'
-axa_start_label = AXA_HIRE.strftime('%b %Y')  # "Sep 2023"
+years_axa = years_plus(AXA_HIRE)
 
-# GitHub stats
+# ---- GitHub stats ----
 repos = gh_api(f'/users/{GH_USER}/repos?per_page=100&type=public')
-public_repos = sum(1 for r in repos if not r['fork'])  # exclude forks
-total_stars = sum(r['stargazers_count'] for r in repos if not r['fork'])
-
-# Latest push across own repos (exclude forks)
 own = [r for r in repos if not r['fork']]
+public_repos = len(own)
+total_stars = sum(r['stargazers_count'] for r in own)
 latest_iso = max((r['pushed_at'] for r in own), default=None)
+
 def relative_time(iso_z):
     if not iso_z:
         return 'unknown'
@@ -73,25 +57,48 @@ def relative_time(iso_z):
 
 gh_latest_push_rel = relative_time(latest_iso)
 
-# Medium RSS
-rss_xml = http_get(f'https://medium.com/feed/@{MEDIUM_HANDLE}')
-rss_root = ET.fromstring(rss_xml)
-items = rss_root.findall('.//item')[:5]
-medium_count = len(items)
-medium_posts_html_lines = []
-for item in items:
-    title = (item.findtext('title') or '').strip()
-    # strip ?source=rss tracking
-    link = (item.findtext('link') or '').split('?')[0]
-    # Escape HTML
-    title_safe = title.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
-    medium_posts_html_lines.append(f'        <li><a href="{link}" target="_blank" rel="noopener">{title_safe}</a></li>')
-medium_posts_html = '\n'.join(medium_posts_html_lines) if medium_posts_html_lines else '        <li>No posts yet</li>'
+# ---- Medium RSS — primary fetch + rss2json fallback ----
+def fetch_medium_items():
+    """Try direct RSS first; fall back to rss2json.com if Medium 403s the runner IP."""
+    feed_url = f'https://medium.com/feed/@{MEDIUM_HANDLE}'
+    # Attempt 1: direct
+    try:
+        xml = http_get(feed_url)
+        root = ET.fromstring(xml)
+        items = []
+        for item in root.findall('.//item')[:5]:
+            items.append({
+                'title': (item.findtext('title') or '').strip(),
+                'link': (item.findtext('link') or '').split('?')[0],
+            })
+        if items:
+            print(f'  Medium fetched directly: {len(items)} items')
+            return items
+    except Exception as e:
+        print(f'  direct Medium fetch failed: {e!r}; trying rss2json.com')
+    # Attempt 2: rss2json.com (free tier, no auth)
+    try:
+        api_url = f'https://api.rss2json.com/v1/api.json?rss_url={urllib.parse.quote(feed_url)}'
+        data = json.loads(http_get(api_url))
+        if data.get('status') == 'ok':
+            items = [
+                {'title': it['title'], 'link': it['link'].split('?')[0]}
+                for it in data.get('items', [])[:5]
+            ]
+            print(f'  Medium fetched via rss2json: {len(items)} items')
+            return items
+    except Exception as e:
+        print(f'  rss2json fallback also failed: {e!r}')
+    print('  no Medium items — section will show placeholder')
+    return []
 
-last_updated = TODAY.isoformat()
-
-# ---- Compose AXA tenure text ----
-years_axa_text = f'{axa_start_label} — Present ({years_axa_plus} years)'
+medium_items = fetch_medium_items()
+medium_count = len(medium_items)
+posts_html_lines = []
+for it in medium_items:
+    title_safe = it['title'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+    posts_html_lines.append(f'        <li><a href="{it["link"]}" target="_blank" rel="noopener">{title_safe}</a></li>')
+medium_posts_html = '\n'.join(posts_html_lines) if posts_html_lines else '        <li>No posts yet</li>'
 
 # ---- Apply token replacements ----
 with open('index.template.html') as f:
@@ -99,25 +106,23 @@ with open('index.template.html') as f:
 
 substitutions = {
     'YEARS_EXP': years_exp,
-    'YEARS_AXA': years_axa_plus,
-    'YEARS_AXA_TEXT': years_axa_text,
+    'YEARS_AXA': years_axa,
     'GH_REPOS': str(public_repos),
     'GH_STARS': str(total_stars),
     'GH_LATEST_PUSH_REL': gh_latest_push_rel,
     'MEDIUM_COUNT': str(medium_count),
     'MEDIUM_POSTS_HTML': medium_posts_html,
-    'LAST_UPDATED': last_updated,
+    'LAST_UPDATED': TODAY.isoformat(),
 }
 
 for token, value in substitutions.items():
     html = html.replace(f'{{{{{token}}}}}', value)
 
-# Sanity: any tokens left?
 leftovers = re.findall(r'\{\{(\w+)\}\}', html)
 if leftovers:
-    print(f'WARN unreplaced tokens: {set(leftovers)}', flush=True)
+    print(f'  WARN unreplaced tokens: {set(leftovers)}', flush=True)
 
 with open('index.html', 'w') as f:
     f.write(html)
 
-print(f'baked: years_exp={years_exp} years_axa={years_axa_plus} repos={public_repos} stars={total_stars} latest={gh_latest_push_rel} medium={medium_count}')
+print(f'baked: years_exp={years_exp} years_axa={years_axa} repos={public_repos} stars={total_stars} latest={gh_latest_push_rel} medium_count={medium_count}')
