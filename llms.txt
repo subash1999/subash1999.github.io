@@ -26,6 +26,11 @@ Database: MySQL, PostgreSQL, MSSQL, DynamoDB, Supabase
 Cloud/DevOps: AWS (S3, EC2, Lambda, CloudWatch), Docker, Jenkins, Cloudflare Workers, Vercel, GitHub Actions
 Other: Camunda BPMN, Playwright, MUI, Live2D, Rive
 
+## Writing
+- [Medium Profile](https://medium.com/@subash.niroula4455): Technical writing on systems engineering, AI tooling, and developer infrastructure.
+- [Cut Claude Max Quota Burn: 9-Model Local LLM Bench on an 18 GB Mac](https://medium.com/@subash.niroula4455/cut-claude-max-quota-burn-9-model-local-llm-bench-on-an-18-gb-mac-6bf65119a0d6): Benchmark of 9 local LLMs (Qwen2.5-Coder, Qwen3, DeepSeek-R1, GPT-OSS, Phi-4) for offloading Claude Code work on an 18 GB MacBook Pro M3 Pro. Covers MCP bridge architecture, caveman compression for token reduction, and Carbon-rendered benchmark scorecard. Repo: github.com/subash1999/claude-local-llm-setup
+
 ## Contact
 - [LinkedIn](https://www.linkedin.com/in/subash-niroula-9a2734181/)
+- [Medium](https://medium.com/@subash.niroula4455)
 - Email: subash.niroula4455@gmail.com
