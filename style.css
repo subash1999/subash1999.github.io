@@ -440,3 +440,72 @@ ul { list-style: none; }
   .about-highlights { grid-template-columns: 1fr; }
   .hero-name { font-size: 2rem; }
 }
+
+/* === Dynamic-content sections (auto-baked daily) === */
+
+.stats-strip {
+  background: var(--bg-alt, #f5f7fa);
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--border, #e5e7eb);
+  border-bottom: 1px solid var(--border, #e5e7eb);
+}
+.stats-strip .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  text-align: center;
+}
+.stats-strip .stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.stats-strip .stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary, #60A5FA);
+  line-height: 1;
+}
+.stats-strip .stat-label {
+  font-size: 0.85rem;
+  color: var(--text-muted, #6b7280);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+@media (max-width: 768px) {
+  .stats-strip .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.writing-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+.writing-list li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border, #e5e7eb);
+}
+.writing-list li:last-child {
+  border-bottom: 0;
+}
+.writing-list li a {
+  font-weight: 500;
+  color: var(--text, #111827);
+  text-decoration: none;
+}
+.writing-list li a:hover {
+  color: var(--primary, #60A5FA);
+  text-decoration: underline;
+}
+.writing-cta {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.site-footer {
+  background: var(--bg-alt, #f5f7fa);
+  border-top: 1px solid var(--border, #e5e7eb);
+  margin-top: 3rem;
+}
