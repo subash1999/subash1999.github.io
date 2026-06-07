@@ -1,5 +1,16 @@
-/* ===== Variables ===== */
+/* ===== Variables / Theming =====
+   Default = dark. System preference applies when the user hasn't chosen
+   (prefers-color-scheme). An explicit choice is stored on <html data-theme>
+   and persisted in localStorage by the toggle. */
 :root {
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --max-w: 1100px;
+  --radius: 8px;
+}
+
+/* Dark palette (default + when system prefers dark) */
+:root, :root[data-theme="dark"] {
+  color-scheme: dark;
   --bg: #0a0a0a;
   --bg-alt: #111111;
   --surface: #1a1a1a;
@@ -9,10 +20,42 @@
   --accent: #60a5fa;
   --accent-hover: #93c5fd;
   --accent-dim: rgba(96, 165, 250, 0.1);
-  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --max-w: 1100px;
-  --radius: 8px;
+  --nav-bg: rgba(10, 10, 10, 0.85);
 }
+
+/* Light palette */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #ffffff;
+  --bg-alt: #f4f6f9;
+  --surface: #ffffff;
+  --border: #e2e5ea;
+  --text: #161a1f;
+  --text-muted: #5a626c;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-dim: rgba(37, 99, 235, 0.08);
+  --nav-bg: rgba(255, 255, 255, 0.85);
+}
+
+/* System default = light, only when no explicit choice made */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    color-scheme: light;
+    --bg: #ffffff;
+    --bg-alt: #f4f6f9;
+    --surface: #ffffff;
+    --border: #e2e5ea;
+    --text: #161a1f;
+    --text-muted: #5a626c;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --accent-dim: rgba(37, 99, 235, 0.08);
+    --nav-bg: rgba(255, 255, 255, 0.85);
+  }
+}
+
+body { transition: background-color 0.25s ease, color 0.25s ease; }
 
 /* ===== Reset ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -38,7 +81,7 @@ ul { list-style: none; }
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(10, 10, 10, 0.85);
+  background: var(--nav-bg);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
@@ -561,4 +604,25 @@ ul { list-style: none; }
 .site-footer time {
   color: var(--text);
   font-weight: 500;
+}
+
+/* ===== FAQ (AI-askable) ===== */
+.faq-list { display: grid; gap: 14px; }
+.faq-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+}
+.faq-item h3 {
+  font-size: 1.02rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.faq-item p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
 }

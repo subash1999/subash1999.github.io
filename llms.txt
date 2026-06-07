@@ -1,9 +1,16 @@
 # Subash Niroula — Portfolio
 
-> Lead Software Engineer in Tokyo. Full-stack developer with 6+ years building enterprise products, microservices, and mobile apps.
+> Senior Full-Stack Engineer in Tokyo. 6+ years building enterprise products, microservices, and mobile apps with React, Spring Boot, Next.js, and Go. Pursuing an MS in Computer Science at Georgia Tech (OMSCS). Bilingual EN/JP (IELTS 7.5, JLPT N2).
+
+## About
+- Senior Full-Stack Engineer based in Tokyo, Japan. Builds products 0→1 from architecture through deployment and operations.
+- Currently at an enterprise insurance company in Tokyo: multiple projects and microservices, led legacy→microservices migration, optimized SQL queries from ~5 min to under 5s on millions of records, built HR portals with Camunda BPMN workflow automation and edge web apps on Cloudflare Workers.
+- Recent flagship (2026): built an internal HR portal 0→1 as sole engineer — Next.js, MUI, Supabase (PostgreSQL), Camunda BPMN approval/onboarding workflows, Docker CI/CD, Playwright E2E, deployed on Vercel.
+- Education: MS Computer Science @ Georgia Tech (OMSCS, in progress); B.Eng. Computer Engineering, Pokhara University (GPA 3.7/4.0).
+- Open to senior full-stack / software engineering opportunities in Tokyo and remote.
 
 ## Main Page
-- [Portfolio](https://subashn.com.np): Full portfolio with experience timeline, skills, projects, education, and contact info. Bilingual (English/Japanese).
+- [Portfolio](https://subashn.com.np): Full portfolio with experience timeline, skills, projects, education, FAQ, and contact info. Bilingual (English/Japanese).
 
 ## GitHub Profile
 - [GitHub](https://github.com/subash1999): Profile README with tech stack, stats, and featured work.

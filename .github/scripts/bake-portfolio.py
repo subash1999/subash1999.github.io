@@ -125,4 +125,16 @@ if leftovers:
 with open('index.html', 'w') as f:
     f.write(html)
 
+# ---- Keep sitemap.xml <lastmod> fresh (freshness signal for search + AI crawlers) ----
+try:
+    with open('sitemap.xml') as f:
+        sm = f.read()
+    sm_new = re.sub(r'<lastmod>.*?</lastmod>', f'<lastmod>{TODAY.isoformat()}</lastmod>', sm)
+    if sm_new != sm:
+        with open('sitemap.xml', 'w') as f:
+            f.write(sm_new)
+        print(f'  sitemap.xml lastmod -> {TODAY.isoformat()}')
+except FileNotFoundError:
+    print('  sitemap.xml not found — skipped lastmod refresh')
+
 print(f'baked: years_exp={years_exp} years_axa={years_axa} repos={public_repos} stars={total_stars} latest={gh_latest_push_rel} medium_count={medium_count}')
