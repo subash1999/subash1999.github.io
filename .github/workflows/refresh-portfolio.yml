@@ -26,7 +26,7 @@ jobs:
           GH_USER: subash1999
           MEDIUM_HANDLE: subash.niroula4455
           CAREER_START: '2019-09-01'
-          AXA_HIRE: '2023-09-16'
+          AXA_HIRE: '2023-06-12'
         run: |
           python3 .github/scripts/bake-portfolio.py
 

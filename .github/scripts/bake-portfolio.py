@@ -113,6 +113,7 @@ substitutions = {
     'MEDIUM_COUNT': str(medium_count),
     'MEDIUM_POSTS_HTML': medium_posts_html,
     'LAST_UPDATED': TODAY.isoformat(),
+    'CURRENT_YEAR': str(TODAY.year),
 }
 
 for token, value in substitutions.items():

@@ -1,6 +1,6 @@
 /* TEAM */
 Name: Subash Niroula
-Role: Lead Software Engineer
+Role: Senior Full-Stack Engineer
 Location: Tokyo, Japan
 GitHub: https://github.com/subash1999
 LinkedIn: https://www.linkedin.com/in/subash-niroula-9a2734181/
@@ -10,4 +10,4 @@ Built: April 2026
 Standards: HTML5, CSS3, ES6
 Tools: HTML, CSS, JavaScript
 Hosting: GitHub Pages
-Design: Dark mode, responsive, bilingual (EN/JP)
+Design: Light/dark/system theme, responsive, bilingual (EN/JP)
