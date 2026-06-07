@@ -606,6 +606,16 @@ ul { list-style: none; }
   font-weight: 500;
 }
 
+/* ===== Timeline project sub-headings (one company, multiple projects) ===== */
+.timeline-project {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--accent);
+  margin: 16px 0 6px;
+  letter-spacing: 0.01em;
+}
+.timeline-content > .timeline-project:first-of-type { margin-top: 10px; }
+
 /* ===== FAQ (AI-askable) ===== */
 .faq-list { display: grid; gap: 14px; }
 .faq-item {
