@@ -6,7 +6,7 @@
 - Senior Full-Stack Engineer based in Tokyo, Japan. Builds products 0→1 from architecture through deployment and operations.
 - Currently at AXA Life Insurance in Tokyo: multiple projects and microservices, led legacy→microservices migration, optimized SQL queries from ~5 min to under 5s on millions of records, built HR portals with Camunda BPMN workflow automation and edge web apps on Cloudflare Workers.
 - Recent flagship (2026): built an internal HR portal 0→1 as sole engineer — Next.js, MUI, Supabase (PostgreSQL), Camunda BPMN approval/onboarding workflows, Docker CI/CD, Playwright E2E, deployed on Vercel.
-- Education: MS Computer Science @ Georgia Tech (OMSCS, in progress — CS-6400 Database Systems 94.1/100, CS-7295 GPU Software/Hardware Summer 2026); B.Eng. Computer Engineering, Pokhara University (GPA 3.7/4.0).
+- Education: MS Computer Science @ Georgia Tech (OMSCS, in progress; coursework: Database Systems, GPU Software/Hardware); B.Eng. Computer Engineering, Pokhara University (GPA 3.7/4.0).
 - Certifications: AWS Certified Developer – Associate (April 2026).
 - AI/LLM tooling: multi-agent orchestration, Claude & Claude Code workflows, MCP tools and servers, local-LLM benchmarking and AI-agent cost optimization, RAG, prompt engineering.
 - Best reached on LinkedIn; always glad to connect with other engineers and talk through interesting technical problems.
