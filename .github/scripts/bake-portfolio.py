@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Bake index.template.html → index.html with dynamic values."""
-import os, re, json, datetime, urllib.request, urllib.parse
+import os, re, json, html, datetime, email.utils, urllib.request, urllib.parse
 from xml.etree import ElementTree as ET
 
 CAREER_START = datetime.date.fromisoformat(os.environ['CAREER_START'])
@@ -70,6 +70,7 @@ def fetch_medium_items():
             items.append({
                 'title': (item.findtext('title') or '').strip(),
                 'link': (item.findtext('link') or '').split('?')[0],
+                'date': item.findtext('pubDate') or '',
             })
         if items:
             print(f'  Medium fetched directly: {len(items)} items')
@@ -82,7 +83,7 @@ def fetch_medium_items():
         data = json.loads(http_get(api_url))
         if data.get('status') == 'ok':
             items = [
-                {'title': it['title'], 'link': it['link'].split('?')[0]}
+                {'title': it['title'], 'link': it['link'].split('?')[0], 'date': it.get('pubDate', '')}
                 for it in data.get('items', [])[:5]
             ]
             print(f'  Medium fetched via rss2json: {len(items)} items')
@@ -92,13 +93,25 @@ def fetch_medium_items():
     print('  no Medium items — section will show placeholder')
     return []
 
+def post_date(raw):
+    """RSS gives RFC 822 ('Sun, 14 Jun 2026 …'), rss2json gives '2026-06-14 10:00:00'."""
+    for parse in (lambda r: email.utils.parsedate_to_datetime(r).date(),
+                  lambda r: datetime.date.fromisoformat(r[:10])):
+        try:
+            return parse(raw)
+        except Exception:
+            pass
+    return None
+
 medium_items = fetch_medium_items()
 medium_count = len(medium_items)
 posts_html_lines = []
 for it in medium_items:
     title_safe = it['title'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
-    posts_html_lines.append(f'        <li><a href="{it["link"]}" target="_blank" rel="noopener">{title_safe}</a></li>')
-medium_posts_html = '\n'.join(posts_html_lines) if posts_html_lines else '        <li>No posts yet</li>'
+    stamp = post_date(it.get('date', ''))
+    when = f'<time datetime="{stamp.isoformat()}">{stamp:%b %Y}</time>' if stamp else ''
+    posts_html_lines.append(f'        <li><a href="{html.escape(it["link"], quote=True)}" target="_blank" rel="noopener"><span>{title_safe}</span>{when}</a></li>')
+medium_posts_html = '\n'.join(posts_html_lines) if posts_html_lines else '        <li data-en="No posts yet" data-jp="記事はまだありません">No posts yet</li>'
 
 # ---- Apply token replacements ----
 with open('index.template.html') as f:
@@ -106,6 +119,7 @@ with open('index.template.html') as f:
 
 substitutions = {
     'YEARS_EXP': years_exp,
+    'YEARS_EXP_JA': years_exp.rstrip('+') + '年以上',
     'YEARS_AXA': years_axa,
     'GH_REPOS': str(public_repos),
     'GH_STARS': str(total_stars),

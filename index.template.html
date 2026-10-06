@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121417" media="(prefers-color-scheme: dark)">
   <!-- Apply saved theme before paint (no flash) -->
   <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
   <title>Subash Niroula — Senior Full-Stack Engineer in Tokyo</title>
@@ -23,18 +26,18 @@
   <!-- Twitter/X Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Subash Niroula — Senior Full-Stack Engineer in Tokyo">
-  <meta name="twitter:description" content="Senior Full-Stack Engineer in Tokyo. {{YEARS_EXP}} years building enterprise products from 0→1. React, Spring Boot, Next.js, Go.">
+  <meta name="twitter:description" content="Senior Full-Stack Engineer in Tokyo. {{YEARS_EXP}} years building enterprise systems with React, Spring Boot, Next.js and AWS, plus AI-agent infrastructure.">
   <meta name="twitter:image" content="https://subashn.com.np/avatar.jpg">
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/jpeg" href="/avatar.jpg" sizes="any">
+  <link rel="icon" type="image/jpeg" href="/avatar.jpg">
   <link rel="apple-touch-icon" href="/avatar.jpg">
   <!-- humans.txt -->
   <link type="text/plain" rel="author" href="/humans.txt">
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <!-- JSON-LD Structured Data: Person -->
   <script type="application/ld+json">
@@ -95,7 +98,7 @@
       "Artificial Intelligence", "Large Language Models", "Claude", "Claude Code",
       "Model Context Protocol (MCP)", "Multi-Agent Systems", "AI Agents", "RAG", "Prompt Engineering"
     ],
-    "description": "Senior Full-Stack Engineer in Tokyo with {{YEARS_EXP}} years of experience. Builds enterprise products from 0→1 using React, Spring Boot, Next.js, and Go. Pursuing an MS in Computer Science at Georgia Tech.",
+    "description": "Senior Full-Stack Engineer in Tokyo with {{YEARS_EXP}} years of experience. Builds enterprise systems end to end with React, Spring Boot, Next.js, and AWS, and writes about AI-agent infrastructure. Pursuing an MS in Computer Science at Georgia Tech.",
     "sameAs": [
       "https://github.com/subash1999",
       "https://www.linkedin.com/in/subash-niroula-9a2734181/",
@@ -141,7 +144,7 @@
         "name": "Who is Subash Niroula?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Subash Niroula is a Senior Full-Stack Engineer based in Tokyo, Japan, with {{YEARS_EXP}} years of experience building enterprise products from 0 to 1. He works across React, Spring Boot, Next.js, and Go, and is pursuing an MS in Computer Science at Georgia Tech."
+          "text": "Subash Niroula is a Senior Full-Stack Engineer based in Tokyo, Japan, with {{YEARS_EXP}} years of experience building enterprise systems end to end. He works across React, Spring Boot, Next.js, and AWS, and is pursuing an MS in Computer Science at Georgia Tech."
         }
       },
       {
@@ -181,545 +184,378 @@
         "name": "Where is Subash based and what languages does he speak?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "He is based in Tokyo, Japan. He speaks English (IELTS 7.5), Japanese (JLPT N2 equivalent), Hindi, and native Nepali."
+          "text": "He is based in Tokyo, Japan. He speaks English (IELTS 7.5), Japanese (business level), Hindi (business level), and native Nepali."
         }
       }
     ]
   }
   </script>
 </head>
-<body>
-  <nav class="nav">
+<body id="top">
+  <a class="skip-link" href="#main" data-en="Skip to content" data-jp="本文へスキップ">Skip to content</a>
+
+  <nav class="nav" aria-label="Primary">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">SN</a>
+      <a href="#top" class="nav-logo" lang="en">Subash Niroula</a>
       <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
-        <button id="theme-toggle" class="lang-btn theme-btn" aria-label="Switch color theme" title="Switch theme">🌓</button>
-        <button id="lang-toggle" class="lang-btn" aria-label="Switch language">JP</button>
+        <a href="#experience" data-en="Experience" data-jp="職歴">Experience</a>
+        <a href="#projects" data-en="Projects" data-jp="プロジェクト">Projects</a>
+        <a href="#writing" data-en="Writing" data-jp="技術記事">Writing</a>
+        <a href="#education" data-en="Education" data-jp="学歴・資格">Education</a>
+        <a href="#contact" data-en="Contact" data-jp="連絡先">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="nav-btn" type="button" aria-label="Dark mode" title="Dark mode" aria-pressed="false">
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg>
+        </button>
+        <button id="lang-toggle" class="nav-btn" type="button" lang="ja">日本語</button>
       </div>
     </div>
   </nav>
 
-  <main>
+  <main id="main">
   <!-- Hero -->
-  <section class="hero">
+  <header class="hero">
     <div class="container">
-      <img src="https://subashn.com.np/avatar.jpg" alt="Subash Niroula" class="hero-avatar" width="120" height="120">
-      <p class="hero-greeting" data-en="Hi, I'm" data-jp="こんにちは、">Hi, I'm</p>
-      <h1 class="hero-name">Subash Niroula</h1>
-      <h2 class="hero-title" data-en="Senior Full-Stack Engineer in Tokyo" data-jp="東京在住 シニアフルスタックエンジニア">Senior Full-Stack Engineer in Tokyo</h2>
-      <p class="hero-desc" data-en="I build full-stack products from 0→1. {{YEARS_EXP}} years shipping enterprise platforms, microservices, and mobile apps across React, Spring Boot, Next.js, and Go." data-jp="フルスタックプロダクトを0→1で構築。React、Spring Boot、Next.js、Goを用いた企業向けプラットフォーム、マイクロサービス、モバイルアプリの開発に{{YEARS_EXP}}年以上従事。">I build full-stack products from 0→1. {{YEARS_EXP}} years shipping enterprise platforms, microservices, and mobile apps across React, Spring Boot, Next.js, and Go.</p>
+      <div class="hero-head">
+        <img src="/avatar.jpg" alt="" class="hero-avatar" width="88" height="88">
+        <div>
+          <h1 class="hero-name" lang="en">Subash Niroula</h1>
+          <p class="hero-kana" lang="ja" aria-hidden="true">ニロウラ・スバス</p>
+          <p class="hero-title" data-en="Senior Full-Stack Engineer, Tokyo" data-jp="シニアフルスタックエンジニア（東京）">Senior Full-Stack Engineer, Tokyo</p>
+          <p class="hero-sub" data-en="MS CS student, Georgia Tech · AWS Certified Developer" data-jp="ジョージア工科大学 CS修士課程在籍・AWS認定デベロッパー">MS CS student, Georgia Tech · AWS Certified Developer</p>
+        </div>
+      </div>
+      <p class="hero-desc" data-en="At AXA Life Insurance I lead three developers on Spring Boot microservices and React/Next.js frontends. I cut heavy SQL queries over millions of rows from 5 minutes to under 5 seconds. I also build and write about AI-agent infrastructure: cost-based routing across model vendors and custom MCP servers." data-jp="アクサ生命保険で3名の開発者をリードし、Spring BootのマイクロサービスとReact/Next.jsのフロントエンドを開発しています。数百万件のデータを扱うSQLクエリの実行時間を5分から5秒未満に短縮しました。AIエージェント基盤（ベンダー横断のコスト別モデルルーティング、自作MCPサーバー）の構築と技術発信にも取り組んでいます。">At AXA Life Insurance I lead three developers on Spring Boot microservices and React/Next.js frontends. I cut heavy SQL queries over millions of rows from 5 minutes to under 5 seconds. I also build and write about AI-agent infrastructure: cost-based routing across model vendors and custom MCP servers.</p>
       <div class="hero-links">
-        <a href="https://github.com/subash1999" target="_blank" class="btn btn-primary">GitHub</a>
-        <a href="https://www.linkedin.com/in/subash-niroula-9a2734181/" target="_blank" class="btn btn-secondary">LinkedIn</a>
-        <a href="https://medium.com/@subash.niroula4455" target="_blank" class="btn btn-secondary">Medium</a>
+        <a href="https://www.linkedin.com/in/subash-niroula-9a2734181/" target="_blank" rel="noopener me" class="btn btn-primary">LinkedIn</a>
+        <a href="https://github.com/subash1999" target="_blank" rel="noopener me" class="btn btn-ghost">GitHub</a>
+        <a href="https://medium.com/@subash.niroula4455" target="_blank" rel="noopener me" class="btn btn-ghost">Medium</a>
+      </div>
+
+      <!-- Career as a rail line: Nepal segment in crimson, Japan segment in the line colour -->
+      <div class="strip-wrap">
+        <ol class="strip" role="list" aria-label="Career route, 2015 to now">
+          <li data-region="np" style="--i:0"><span class="code" aria-hidden="true"><b>SN</b>01</span><span class="yr">2015</span><span class="nm" data-en="B.Eng." data-jp="学士">B.Eng.</span><span class="pl" lang="en">Nepal Engineering College</span></li>
+          <li data-region="np" style="--i:1"><span class="code" aria-hidden="true"><b>SN</b>02</span><span class="yr">2020</span><span class="nm" data-en="Freelance" data-jp="フリー​ランス">Freelance</span><span class="pl" data-en="Remote, Australian clients" data-jp="豪州クライアント（リモート）">Remote, Australian clients</span></li>
+          <li data-region="np" style="--i:2"><span class="code" aria-hidden="true"><b>SN</b>03</span><span class="yr">2021</span><span class="nm" lang="en">Genese</span><span class="pl" data-en="Kathmandu" data-jp="カトマンズ">Kathmandu</span></li>
+          <li data-region="np" style="--i:3"><span class="code" aria-hidden="true"><b>SN</b>04</span><span class="yr">2022</span><span class="nm" lang="en">Leapfrog</span><span class="pl" data-en="Kathmandu" data-jp="カトマンズ">Kathmandu</span></li>
+          <li data-region="jp" data-cross style="--i:4"><span class="code" aria-hidden="true"><b>SN</b>05</span><span class="yr">2022</span><span class="nm" data-en="Human Resocia" data-jp="ヒューマン​リソシア">Human Resocia</span><span class="pl" data-en="Tokyo" data-jp="東京">Tokyo</span></li>
+          <li data-region="jp" class="now" style="--i:5"><span class="code" aria-hidden="true"><b>SN</b>06</span><span class="yr" data-en="2023–now" data-jp="2023–現在">2023–now</span><span class="nm" lang="en">AXA</span><span class="pl" data-en="Tokyo" data-jp="東京">Tokyo</span></li>
+        </ol>
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- Stats strip (auto-baked daily by .github/workflows/refresh-portfolio.yml) -->
-  <section class="stats-strip">
+  <!-- Experience: one stop per job, newest first; the code is the stop's order on the route -->
+  <section id="experience" class="section" aria-labelledby="experience-title">
     <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item">
-          <span class="stat-value">{{YEARS_EXP}}</span>
-          <span class="stat-label" data-en="Years SWE" data-jp="エンジニア歴">Years SWE</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-value">{{YEARS_AXA}}</span>
-          <span class="stat-label" data-en="Years at AXA" data-jp="AXA勤続">Years at AXA</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-value">{{GH_REPOS}}</span>
-          <span class="stat-label" data-en="Public repos" data-jp="公開リポジトリ">Public repos</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-value">{{GH_STARS}}</span>
-          <span class="stat-label" data-en="GitHub stars" data-jp="GitHubスター">GitHub stars</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-value">{{MEDIUM_COUNT}}</span>
-          <span class="stat-label" data-en="Articles" data-jp="記事数">Articles</span>
-        </div>
-      </div>
-    </div>
-  </section>
+      <h2 class="section-title" id="experience-title"><span data-en="Experience" data-jp="職歴">Experience</span><span class="sign-alt" lang="ja" aria-hidden="true" data-en="職歴" data-jp="Experience">職歴</span></h2>
+      <ol class="route" role="list">
 
-  <!-- About -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2 class="section-title" data-en="About Me" data-jp="自己紹介">About Me</h2>
-      <div class="about-grid">
-        <div class="about-text">
-          <p data-en="I'm a senior full-stack engineer based in Tokyo, Japan. I specialize in building products from scratch — from architecture design through deployment and operations." data-jp="東京を拠点とするシニアフルスタックエンジニアです。アーキテクチャ設計からデプロイ・運用まで、プロダクトをゼロから構築することを得意としています。">I'm a senior full-stack engineer based in Tokyo, Japan. I specialize in building products from scratch — from architecture design through deployment and operations.</p>
-          <p data-en="At AXA Life Insurance, I work across multiple projects and microservices, often taking a lead role on the frontend and new builds. I've built HR portals with workflow automation, internal web apps deployed on edge computing, and agent platforms serving thousands of users." data-jp="現在はアクサ生命保険で、複数プロジェクト・マイクロサービスに携わり、フロントエンドや新規開発でリード的役割を担うことが多いです。ワークフロー自動化を搭載したHRポータル、エッジコンピューティングにデプロイした社内Webアプリ、数千人が利用するエージェントプラットフォームなどを構築しました。">At AXA Life Insurance, I work across multiple projects and microservices, often taking a lead role on the frontend and new builds. I've built HR portals with workflow automation, internal web apps deployed on edge computing, and agent platforms serving thousands of users.</p>
-          <p data-en="I'm bilingual in English (IELTS 7.5) and Japanese (JLPT N2 equivalent), and I thrive in cross-functional agile teams." data-jp="英語（IELTS 7.5）と日本語（JLPT N2相当）のバイリンガルで、クロスファンクショナルなアジャイルチームで活躍しています。">I'm bilingual in English (IELTS 7.5) and Japanese (JLPT N2 equivalent), and I thrive in cross-functional agile teams.</p>
-          <p data-en="Lately I have been building and writing about AI-agent infrastructure: treating a coding agent like real infrastructure with capability-based model routing, cost-aware multi-model orchestration, directory-scoped privacy controls, and custom MCP tooling. I publish the patterns as open-source reference code and a technical writing series." data-jp="最近は、AIエージェント・インフラの構築と発信に注力しています。コーディングエージェントを本物のインフラのように扱い、能力ベースのモデルルーティング、コストを意識したマルチモデル・オーケストレーション、ディレクトリ単位のプライバシー制御、カスタムMCPツールを設計しています。その知見はオープンソースの実装コードと技術記事シリーズとして公開しています。">Lately I have been building and writing about AI-agent infrastructure: treating a coding agent like real infrastructure with capability-based model routing, cost-aware multi-model orchestration, directory-scoped privacy controls, and custom MCP tooling. I publish the patterns as open-source reference code and a technical writing series.</p>
-        </div>
-        <div class="about-highlights">
-          <div class="highlight-card">
-            <span class="highlight-number">{{YEARS_EXP}}</span>
-            <span class="highlight-label" data-en="Years Experience" data-jp="年の経験">Years Experience</span>
-          </div>
-          <div class="highlight-card">
-            <span class="highlight-number">5min→5s</span>
-            <span class="highlight-label" data-en="SQL Query Optimization" data-jp="SQLクエリ最適化">SQL Query Optimization</span>
-          </div>
-          <div class="highlight-card">
-            <span class="highlight-number">0→1</span>
-            <span class="highlight-label" data-en="Products Built from Scratch" data-jp="ゼロから構築したプロダクト">Products Built from Scratch</span>
-          </div>
-          <div class="highlight-card">
-            <span class="highlight-number">3.7/4.0</span>
-            <span class="highlight-label" data-en="GPA — Computer Engineering" data-jp="GPA — コンピュータ工学">GPA — Computer Engineering</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience -->
-  <section id="experience" class="section section-alt">
-    <div class="container">
-      <h2 class="section-title" data-en="Experience" data-jp="職歴">Experience</h2>
-      <div class="timeline">
-
-        <div class="timeline-item">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <div class="timeline-header">
-              <h3 data-en="Software Engineer" data-jp="ソフトウェアエンジニア">Software Engineer</h3>
-              <span class="timeline-company" data-en="AXA Life Insurance, Tokyo" data-jp="アクサ生命保険、東京">AXA Life Insurance, Tokyo</span>
-              <span class="timeline-date">Jun 2023 — Present</span>
-            </div>
-
-            <p class="timeline-project" data-en="Project — Agent Portal" data-jp="プロジェクト — エージェントポータル">Project — Agent Portal</p>
+        <li class="stop" data-region="jp">
+          <span class="code" aria-hidden="true"><b>SN</b>06</span>
+          <div>
+            <p class="stop-date" data-en="Jun 2023 – Present" data-jp="2023年6月 – 現在">Jun 2023 – Present</p>
+            <h3 data-en="AXA Life Insurance, Tokyo" data-jp="アクサ生命保険（東京）">AXA Life Insurance, Tokyo</h3>
+            <p class="stop-role" data-en="Software Engineer" data-jp="ソフトウェアエンジニア">Software Engineer</p>
+            <h4 class="stop-sub" data-en="Agent Portal" data-jp="エージェントポータル">Agent Portal</h4>
             <ul>
+              <li data-en="Optimized complex SQL queries from 5 minutes to under 5 seconds for millions of records" data-jp="数百万レコードを扱う複雑なSQLクエリを最適化し、実行時間を5分から5秒未満に短縮">Optimized complex SQL queries from 5 minutes to under 5 seconds for millions of records</li>
               <li data-en="Dev lead of 3 developers in a 10-member agile squad across multiple projects and microservices" data-jp="10名のアジャイルスクワッド内で3名の開発者のリードを務め、複数プロジェクト・マイクロサービスを担当">Dev lead of 3 developers in a 10-member agile squad across multiple projects and microservices</li>
-              <li data-en="Optimized complex SQL queries from 5 minutes to under 5 seconds for millions of records" data-jp="数百万レコードに対する複雑なSQLクエリを5分→5秒未満に最適化">Optimized complex SQL queries from 5 minutes to under 5 seconds for millions of records</li>
               <li data-en="Led the transition from legacy systems to microservices; ran code reviews and mentored junior engineers" data-jp="レガシーシステムからマイクロサービスへの移行を主導し、コードレビューとジュニアエンジニアの育成を担当">Led the transition from legacy systems to microservices; ran code reviews and mentored junior engineers</li>
             </ul>
-
-            <p class="timeline-project" data-en="Project — Internal HR Portal (sole engineer, 2026)" data-jp="プロジェクト — 社内HRポータル（単独エンジニア・2026）">Project — Internal HR Portal (sole engineer, 2026)</p>
+            <h4 class="stop-sub" data-en="Internal HR Portal (sole engineer, 2026)" data-jp="社内HRポータル（単独エンジニア・2026）">Internal HR Portal (sole engineer, 2026)</h4>
             <ul>
-              <li data-en="Built from 0→1 — architecture, development, testing, and DevOps" data-jp="0→1で構築 — 設計・開発・テスト・DevOpsを担当">Built from 0→1 — architecture, development, testing, and DevOps</li>
-              <li data-en="Approval and onboarding workflows with Camunda BPMN; Next.js + MUI frontend on Supabase (PostgreSQL)" data-jp="Camunda BPMNで承認・オンボーディングのワークフローを実装。Next.js + MUIフロントエンドとSupabase（PostgreSQL）">Approval and onboarding workflows with Camunda BPMN; Next.js + MUI frontend on Supabase (PostgreSQL)</li>
-              <li data-en="Containerized CI/CD with Docker, end-to-end testing with Playwright, deployed on Vercel" data-jp="DockerによるコンテナCI/CD、PlaywrightによるE2Eテスト、Vercelにデプロイ">Containerized CI/CD with Docker, end-to-end testing with Playwright, deployed on Vercel</li>
+              <li data-en="Built it alone, from design to deployment: Camunda BPMN approval and onboarding workflows, a Next.js + MUI front end on Supabase, Playwright E2E tests in Docker-based CI, hosted on Vercel" data-jp="設計からデプロイまで単独で担当。Camunda BPMNで承認・オンボーディングのワークフローを構築し、Next.js + MUIとSupabaseで実装、Docker上のCIでPlaywrightのE2Eテストを回し、Vercelにデプロイ">Built it alone, from design to deployment: Camunda BPMN approval and onboarding workflows, a Next.js + MUI front end on Supabase, Playwright E2E tests in Docker-based CI, hosted on Vercel</li>
             </ul>
-
-            <div class="tech-tags">
-              <span>React</span><span>Spring Boot</span><span>Next.js</span><span>Node.js</span><span>AWS</span><span>MySQL</span><span>Supabase</span><span>Camunda BPMN</span><span>Docker</span><span>Playwright</span><span>Cloudflare Workers</span>
-            </div>
+            <ul class="tags" role="list" lang="en"><li>React</li> <li>Next.js</li> <li>Spring Boot</li> <li>Node.js</li> <li>AWS</li> <li>MySQL</li> <li>Supabase</li> <li>Camunda BPMN</li> <li>Docker</li> <li>Playwright</li> <li>Cloudflare Workers</li></ul>
           </div>
-        </div>
+        </li>
 
-        <div class="timeline-item">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <div class="timeline-header">
-              <h3 data-en="Full Stack Developer" data-jp="フルスタック開発者">Full Stack Developer</h3>
-              <span class="timeline-company">Human Resocia Inc., Tokyo</span>
-              <span class="timeline-date">Jul 2022 — Jun 2023</span>
-            </div>
+        <li class="stop" data-region="jp" data-cross>
+          <span class="code" aria-hidden="true"><b>SN</b>05</span>
+          <div>
+            <p class="stop-date" data-en="Jul 2022 – Jun 2023" data-jp="2022年7月 – 2023年6月">Jul 2022 – Jun 2023</p>
+            <h3 data-en="Human Resocia Inc., Tokyo" data-jp="ヒューマンリソシア株式会社（東京）">Human Resocia Inc., Tokyo</h3>
+            <p class="stop-role" data-en="Full Stack Developer" data-jp="フルスタックエンジニア">Full Stack Developer</p>
+            <p class="stop-note" data-en="Offer received while still in college; Japan's COVID border closure delayed the start until 2022." data-jp="大学在学中に内定。新型コロナによる日本の入国制限のため、入社は2022年に。">Offer received while still in college; Japan's COVID border closure delayed the start until 2022.</p>
             <ul>
               <li data-en="Developed and maintained inventory management systems for multiple enterprise clients" data-jp="複数の企業クライアント向け在庫管理システムを開発・保守">Developed and maintained inventory management systems for multiple enterprise clients</li>
-              <li data-en="Full-stack development with Spring Framework, MSSQL, and JavaScript frontend" data-jp="Spring Framework、MSSQL、JavaScriptフロントエンドによるフルスタック開発">Full-stack development with Spring Framework, MSSQL, and JavaScript frontend</li>
             </ul>
-            <div class="tech-tags">
-              <span>Java</span><span>Spring</span><span>MSSQL</span><span>JavaScript</span><span>Visual Basic</span>
-            </div>
+            <ul class="tags" role="list" lang="en"><li>Java</li> <li>Spring</li> <li>MSSQL</li> <li>JavaScript</li> <li>Visual Basic</li></ul>
           </div>
-        </div>
+        </li>
 
-        <div class="timeline-item">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <div class="timeline-header">
-              <h3 data-en="Full Stack Developer" data-jp="フルスタック開発者">Full Stack Developer</h3>
-              <span class="timeline-company">Leapfrog Technologies, Nepal</span>
-              <span class="timeline-date">Mar 2022 — Jul 2022</span>
-            </div>
+        <li class="stop" data-region="np">
+          <span class="code" aria-hidden="true"><b>SN</b>04</span>
+          <div>
+            <p class="stop-date" data-en="Mar 2022 – Jul 2022" data-jp="2022年3月 – 2022年7月">Mar 2022 – Jul 2022</p>
+            <h3 data-en="Leapfrog Technologies, Kathmandu" data-jp="Leapfrog Technologies（カトマンズ）">Leapfrog Technologies, Kathmandu</h3>
+            <p class="stop-role" data-en="Full Stack Developer" data-jp="フルスタックエンジニア">Full Stack Developer</p>
             <ul>
               <li data-en="Led frontend development of an internal evaluation and reward points application" data-jp="社内評価・リワードポイントアプリのフロントエンド開発をリード">Led frontend development of an internal evaluation and reward points application</li>
             </ul>
-            <div class="tech-tags">
-              <span>Angular</span><span>Django</span><span>TypeScript</span><span>MySQL</span><span>AWS</span><span>Docker</span>
-            </div>
+            <ul class="tags" role="list" lang="en"><li>Angular</li> <li>Django</li> <li>TypeScript</li> <li>MySQL</li> <li>AWS</li> <li>Docker</li></ul>
           </div>
-        </div>
+        </li>
 
-        <div class="timeline-item">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <div class="timeline-header">
-              <h3 data-en="Jr. Full Stack Developer" data-jp="ジュニアフルスタック開発者">Jr. Full Stack Developer</h3>
-              <span class="timeline-company">Genese Solutions, Nepal</span>
-              <span class="timeline-date">Jun 2021 — Mar 2022</span>
-            </div>
+        <li class="stop" data-region="np">
+          <span class="code" aria-hidden="true"><b>SN</b>03</span>
+          <div>
+            <p class="stop-date" data-en="Jun 2021 – Mar 2022" data-jp="2021年6月 – 2022年3月">Jun 2021 – Mar 2022</p>
+            <h3 data-en="Genese Solutions, Kathmandu" data-jp="Genese Solutions（カトマンズ）">Genese Solutions, Kathmandu</h3>
+            <p class="stop-role" data-en="Jr. Full Stack Developer" data-jp="ジュニアフルスタックエンジニア">Jr. Full Stack Developer</p>
             <ul>
               <li data-en="Built a web-based CRM system with real-time messaging and dashboard analytics" data-jp="リアルタイムメッセージング・ダッシュボード分析機能を備えたWebベースCRMシステムを構築">Built a web-based CRM system with real-time messaging and dashboard analytics</li>
             </ul>
-            <div class="tech-tags">
-              <span>Python</span><span>Django</span><span>Angular</span><span>React</span><span>PostgreSQL</span>
-            </div>
+            <ul class="tags" role="list" lang="en"><li>Python</li> <li>Django</li> <li>Angular</li> <li>React</li> <li>PostgreSQL</li></ul>
           </div>
-        </div>
+        </li>
 
-        <div class="timeline-item">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <div class="timeline-header">
-              <h3 data-en="Freelance Developer" data-jp="フリーランス開発者">Freelance Developer</h3>
-              <span class="timeline-company" data-en="Remote (Clients in Australia)" data-jp="リモート（オーストラリアのクライアント）">Remote (Clients in Australia)</span>
-              <span class="timeline-date">Apr 2020 — May 2021</span>
-            </div>
+        <li class="stop" data-region="np">
+          <span class="code" aria-hidden="true"><b>SN</b>02</span>
+          <div>
+            <p class="stop-date" data-en="Apr 2020 – May 2021" data-jp="2020年4月 – 2021年5月">Apr 2020 – May 2021</p>
+            <h3 data-en="Remote (clients in Australia)" data-jp="リモート（オーストラリアのクライアント）">Remote (clients in Australia)</h3>
+            <p class="stop-role" data-en="Freelance Developer" data-jp="フリーランスエンジニア">Freelance Developer</p>
             <ul>
-              <li data-en="Delivered e-commerce sites, a travel platform, and a real-time ambulance tracker for Australian clients" data-jp="オーストラリアのクライアント向けにECサイト、旅行プラットフォーム、リアルタイム救急車追跡システムを納品">Delivered e-commerce sites, a travel platform, and a real-time ambulance tracker for Australian clients</li>
+              <li data-en="Delivered e-commerce sites, a travel platform, and a real-time ambulance tracker" data-jp="ECサイト、旅行プラットフォーム、リアルタイム救急車追跡システムを納品">Delivered e-commerce sites, a travel platform, and a real-time ambulance tracker</li>
             </ul>
-            <div class="tech-tags">
-              <span>PHP</span><span>Laravel</span><span>Django</span><span>React</span><span>MySQL</span>
-            </div>
+            <ul class="tags" role="list" lang="en"><li>PHP</li> <li>Laravel</li> <li>Django</li> <li>React</li> <li>MySQL</li></ul>
           </div>
-        </div>
+        </li>
 
-      </div>
-    </div>
-  </section>
+        <li class="stop stop-term" data-region="np" data-cross>
+          <span class="code" aria-hidden="true"><b>SN</b>01</span>
+          <div>
+            <p class="stop-date" data-en="2015 – 2019" data-jp="2015年 – 2019年">2015 – 2019</p>
+            <p><a href="#education" data-en="B.Eng. Computer Engineering, Nepal Engineering College" data-jp="Nepal Engineering College 学士（コンピュータ工学）">B.Eng. Computer Engineering, Nepal Engineering College</a></p>
+          </div>
+        </li>
 
-  <!-- Skills -->
-  <section id="skills" class="section">
-    <div class="container">
-      <h2 class="section-title" data-en="Skills" data-jp="スキル">Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-category">
-          <h3 data-en="Languages" data-jp="プログラミング言語">Languages</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">TypeScript</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">Java</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">Go</span>
-            <span class="skill-tag">PHP</span>
-            <span class="skill-tag">Dart</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3>Frontend</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">React</span>
-            <span class="skill-tag">Next.js</span>
-            <span class="skill-tag">Angular</span>
-            <span class="skill-tag">React Native</span>
-            <span class="skill-tag">Expo</span>
-            <span class="skill-tag">Flutter</span>
-            <span class="skill-tag">Tailwind CSS</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3>Backend</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Spring Boot</span>
-            <span class="skill-tag">Node.js</span>
-            <span class="skill-tag">Express</span>
-            <span class="skill-tag">Hono</span>
-            <span class="skill-tag">Django</span>
-            <span class="skill-tag">Laravel</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3 data-en="Database" data-jp="データベース">Database</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">MySQL</span>
-            <span class="skill-tag">PostgreSQL</span>
-            <span class="skill-tag">MSSQL</span>
-            <span class="skill-tag">DynamoDB</span>
-            <span class="skill-tag">Supabase</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3 data-en="Cloud & DevOps" data-jp="クラウド・DevOps">Cloud & DevOps</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">AWS</span>
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">Jenkins</span>
-            <span class="skill-tag">Cloudflare Workers</span>
-            <span class="skill-tag">Vercel</span>
-            <span class="skill-tag">GitHub Actions</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3 data-en="AI &amp; Agents" data-jp="AI・エージェント">AI &amp; Agents</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Claude Code</span>
-            <span class="skill-tag">MCP</span>
-            <span class="skill-tag">LLM Routing</span>
-            <span class="skill-tag">Agentic Tooling</span>
-            <span class="skill-tag">Prompt Engineering</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3 data-en="Other" data-jp="その他">Other</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Camunda BPMN</span>
-            <span class="skill-tag">Playwright</span>
-            <span class="skill-tag">MUI</span>
-            <span class="skill-tag">Live2D</span>
-            <span class="skill-tag">Rive</span>
-          </div>
-        </div>
-      </div>
+      </ol>
     </div>
   </section>
 
   <!-- Projects -->
-  <section id="projects" class="section section-alt">
+  <section id="projects" class="section" aria-labelledby="projects-title">
     <div class="container">
-      <h2 class="section-title" data-en="Projects" data-jp="プロジェクト">Projects</h2>
-      <div class="projects-grid">
+      <h2 class="section-title" id="projects-title"><span data-en="Projects" data-jp="プロジェクト">Projects</span><span class="sign-alt" lang="ja" aria-hidden="true" data-en="プロジェクト" data-jp="Projects">プロジェクト</span></h2>
+      <div class="projects">
 
-        <a href="https://github.com/subash1999/claude-code-as-infrastructure" target="_blank" class="project-card">
-          <div class="project-header">
-            <h3>Claude Code as Infrastructure</h3>
-            <span class="project-arrow">&#8599;</span>
-          </div>
-          <p data-en="Treating an AI coding agent like infrastructure: a capability-slot model registry, a directory-scoped PII firewall, multi-vendor cost routing, and a custom MCP server. Reference code for a 6-part series." data-jp="AIコーディングエージェントをインフラとして扱う設計：能力スロット型モデルレジストリ、ディレクトリ単位のPIIファイアウォール、マルチベンダーのコストルーティング、カスタムMCPサーバー。全6回シリーズの実装コード。">Treating an AI coding agent like infrastructure: a capability-slot model registry, a directory-scoped PII firewall, multi-vendor cost routing, and a custom MCP server. Reference code for a 6-part series.</p>
-          <div class="tech-tags"><span>Claude Code</span><span>MCP</span><span>AI Engineering</span></div>
-        </a>
+        <article class="project project-featured">
+          <h3><a class="ext" lang="en" href="https://github.com/subash1999/claude-code-as-infrastructure" target="_blank" rel="noopener">Claude Code as Infrastructure</a></h3>
+          <p data-en="My AI coding-agent setup, run like infrastructure: one registry decides which model does which job, a per-directory privacy firewall, cost routing across vendors, and a custom MCP server. The whole config runs through CI every week; each piece has a write-up in the Medium series." data-jp="AIコーディングエージェントをインフラとして運用する構成：どのモデルに何を任せるかを決めるレジストリ、ディレクトリ単位のプライバシー保護、ベンダー横断のコスト最適化、カスタムMCPサーバー。設定全体は毎週CIで検証し、各要素の解説をMedium連載に書いています。">My AI coding-agent setup, run like infrastructure: one registry decides which model does which job, a per-directory privacy firewall, cost routing across vendors, and a custom MCP server. The whole config runs through CI every week; each piece has a write-up in the Medium series.</p>
+          <ul class="tags" role="list" lang="en"><li>Claude Code</li> <li>MCP</li> <li>AI Engineering</li></ul>
+        </article>
 
-        <a href="https://github.com/subash1999/slack-hr-bot" target="_blank" class="project-card">
-          <div class="project-header">
-            <h3>Slack HR Bot</h3>
-            <span class="project-arrow">&#8599;</span>
-          </div>
-          <p data-en="Slack-based attendance, leave, payroll system. Zero-cost stack for small teams using Google Apps Script + Google Sheets." data-jp="Slackベースの勤怠・休暇・給与計算システム。Google Apps Script + Google Sheetsによるゼロコスト構成。">Slack-based attendance, leave, payroll system. Zero-cost stack for small teams using Google Apps Script + Google Sheets.</p>
-          <div class="tech-tags"><span>TypeScript</span><span>Slack API</span><span>Google Apps Script</span></div>
-        </a>
+        <article class="project">
+          <h3><a class="ext" lang="en" href="https://github.com/nepal-ride-sharing-app" target="_blank" rel="noopener">Ride Sharing Platform</a></h3>
+          <p data-en="Microservices ride-sharing platform: React Native apps, Express.js APIs, serverless back end." data-jp="React Nativeアプリ、Express.js API、サーバーレス構成によるマイクロサービス型ライドシェア。">Microservices ride-sharing platform: React Native apps, Express.js APIs, serverless back end.</p>
+          <ul class="tags" role="list" lang="en"><li>React Native</li> <li>Express.js</li> <li>Microservices</li></ul>
+        </article>
 
-        <a href="https://github.com/subash1999/loan-calculation-app" target="_blank" class="project-card">
-          <div class="project-header">
-            <h3>Loan Calculator</h3>
-            <span class="project-arrow">&#8599;</span>
-          </div>
-          <p data-en="Multi-organization loan management with daily interest calculation, partner allocations, and Nepali calendar integration." data-jp="日次利息計算、パートナー配分、ネパールカレンダー統合を備えたマルチ組織ローン管理システム。">Multi-organization loan management with daily interest calculation, partner allocations, and Nepali calendar integration.</p>
-          <div class="tech-tags"><span>TypeScript</span><span>Next.js</span><span>Finance</span></div>
-        </a>
+        <article class="project">
+          <h3><a class="ext" lang="en" href="https://github.com/narbada-madhusudhan/nme-print-bridge" target="_blank" rel="noopener">Thermal Print Bridge</a></h3>
+          <p data-en="Lightweight Go thermal-printer bridge for web POS systems. Single binary, zero dependencies." data-jp="Web POSシステム向けの軽量Goサーマルプリンターブリッジ。シングルバイナリ、依存関係ゼロ。">Lightweight Go thermal-printer bridge for web POS systems. Single binary, zero dependencies.</p>
+          <ul class="tags" role="list" lang="en"><li>Go</li> <li>POS</li> <li>Hardware</li></ul>
+        </article>
 
-        <a href="https://github.com/subash1999/golden-sungava-homepage" target="_blank" class="project-card">
-          <div class="project-header">
-            <h3>Golden Sungava Homepage</h3>
-            <span class="project-arrow">&#8599;</span>
-          </div>
-          <p data-en="Modern company homepage with Supabase backend, Tailwind CSS styling, and Vercel deployment." data-jp="Supabaseバックエンド、Tailwind CSSスタイリング、Vercelデプロイのモダンな企業ホームページ。">Modern company homepage with Supabase backend, Tailwind CSS styling, and Vercel deployment.</p>
-          <div class="tech-tags"><span>Next.js 15</span><span>Supabase</span><span>Tailwind</span></div>
-        </a>
+        <article class="project">
+          <h3><a class="ext" lang="en" href="https://github.com/subash1999/slack-hr-bot" target="_blank" rel="noopener">Slack HR Bot</a></h3>
+          <p data-en="Slack-based attendance, leave, and payroll for small teams. Zero-cost stack on Google Apps Script + Google Sheets." data-jp="Slackベースの勤怠・休暇・給与計算システム。Google Apps Script + Google Sheetsによるゼロコスト構成。">Slack-based attendance, leave, and payroll for small teams. Zero-cost stack on Google Apps Script + Google Sheets.</p>
+          <ul class="tags" role="list" lang="en"><li>TypeScript</li> <li>Slack API</li> <li>Apps Script</li></ul>
+        </article>
 
-        <a href="https://github.com/nepal-ride-sharing-app" target="_blank" class="project-card">
-          <div class="project-header">
-            <h3>Ride Sharing Platform</h3>
-            <span class="project-arrow">&#8599;</span>
-          </div>
-          <p data-en="Microservices-based ride-sharing platform with React Native mobile apps, Express.js APIs, and serverless architecture." data-jp="React Nativeモバイルアプリ、Express.js API、サーバーレスアーキテクチャによるマイクロサービスベースのライドシェアプラットフォーム。">Microservices-based ride-sharing platform with React Native mobile apps, Express.js APIs, and serverless architecture.</p>
-          <div class="tech-tags"><span>React Native</span><span>Express.js</span><span>Microservices</span></div>
-        </a>
+        <article class="project">
+          <h3><a class="ext" lang="en" href="https://github.com/subash1999/loan-calculation-app" target="_blank" rel="noopener">Loan Calculator</a></h3>
+          <p data-en="Multi-organization loan management with daily interest, partner allocations, and Nepali calendar support." data-jp="日次利息計算、パートナー配分、ネパール暦に対応したマルチ組織ローン管理。">Multi-organization loan management with daily interest, partner allocations, and Nepali calendar support.</p>
+          <ul class="tags" role="list" lang="en"><li>TypeScript</li> <li>Next.js</li> <li>Finance</li></ul>
+        </article>
 
-        <a href="https://github.com/narbada-madhusudhan/nme-print-bridge" target="_blank" class="project-card">
-          <div class="project-header">
-            <h3>Thermal Print Bridge</h3>
-            <span class="project-arrow">&#8599;</span>
-          </div>
-          <p data-en="Lightweight Go thermal printer bridge for web POS systems. Single binary, zero dependencies." data-jp="Web POSシステム向けの軽量Goサーマルプリンターブリッジ。シングルバイナリ、依存関係ゼロ。">Lightweight Go thermal printer bridge for web POS systems. Single binary, zero dependencies.</p>
-          <div class="tech-tags"><span>Go</span><span>POS</span><span>Hardware</span></div>
-        </a>
-
-        <a href="https://github.com/subash1999/NEC-Study-and-Analysis-of-Breast-Cancer-Using-Genomics" target="_blank" class="project-card">
-          <div class="project-header">
-            <h3>Breast Cancer ML Research</h3>
-            <span class="project-arrow">&#8599;</span>
-          </div>
-          <p data-en="ML-based breast cancer prediction using microarray genomic data. Bachelor's thesis with ensemble classifiers and cross-validation." data-jp="マイクロアレイゲノムデータを用いたMLベースの乳がん予測。アンサンブル分類器と交差検証を用いた卒業論文。">ML-based breast cancer prediction using microarray genomic data. Bachelor's thesis with ensemble classifiers and cross-validation.</p>
-          <div class="tech-tags"><span>Python</span><span>scikit-learn</span><span>Bioinformatics</span></div>
-        </a>
+        <article class="project">
+          <h3><a class="ext" lang="en" href="https://github.com/subash1999/golden-sungava-homepage" target="_blank" rel="noopener">Golden Sungava Homepage</a></h3>
+          <p data-en="Company website on Next.js 15 with a Supabase backend, deployed on Vercel." data-jp="Next.js 15とSupabaseで構築し、Vercelにデプロイした企業サイト。">Company website on Next.js 15 with a Supabase backend, deployed on Vercel.</p>
+          <ul class="tags" role="list" lang="en"><li>Next.js 15</li> <li>Supabase</li> <li>Tailwind</li></ul>
+        </article>
 
       </div>
     </div>
   </section>
 
-  <!-- Education & Languages -->
-  <section id="education" class="section">
+  <!-- Writing (auto-baked from Medium RSS) -->
+  <section id="writing" class="section" aria-labelledby="writing-title">
     <div class="container">
-      <div class="edu-lang-grid">
-        <div>
-          <h2 class="section-title" data-en="Education" data-jp="学歴">Education</h2>
-          <div class="edu-card">
-            <h3>MS in Computer Science (OMSCS)</h3>
-            <p class="edu-school">Georgia Institute of Technology</p>
-            <p class="edu-date" data-en="Jan 2026 — present · expected 2028" data-jp="2026年1月 — 在学中（2028年修了予定）">Jan 2026 — present · expected 2028</p>
-            <p class="edu-gpa" data-en="Coursework: Database Systems · GPU Software/Hardware" data-jp="履修科目：データベースシステム · GPUソフトウェア/ハードウェア">Coursework: Database Systems · GPU Software/Hardware</p>
-          </div>
-          <div class="edu-card">
-            <h3>B.Eng. Computer Engineering</h3>
-            <p class="edu-school">Pokhara University (Nepal Engineering College)</p>
-            <p class="edu-date">Sep 2015 — Sep 2019</p>
-            <p class="edu-gpa">GPA: 3.7 / 4.0</p>
-          </div>
-          <div class="edu-card">
-            <h3 data-en="AWS Certified Developer – Associate" data-jp="AWS認定デベロッパー – アソシエイト">AWS Certified Developer – Associate</h3>
-            <p class="edu-school">Amazon Web Services</p>
-            <p class="edu-date" data-en="Apr 2026" data-jp="2026年4月">Apr 2026</p>
-          </div>
-        </div>
-        <div>
-          <h2 class="section-title" data-en="Languages" data-jp="言語能力">Languages</h2>
-          <div class="lang-list">
-            <div class="lang-item">
-              <span class="lang-name" data-en="Japanese" data-jp="日本語">Japanese</span>
-              <span class="lang-level" data-en="Business (JLPT N2 equiv.)" data-jp="ビジネスレベル（N2相当）">Business (JLPT N2 equiv.)</span>
-              <div class="lang-bar"><div class="lang-fill" style="width:80%"></div></div>
-            </div>
-            <div class="lang-item">
-              <span class="lang-name" data-en="English" data-jp="英語">English</span>
-              <span class="lang-level" data-en="Fluent (IELTS 7.5)" data-jp="流暢（IELTS 7.5）">Fluent (IELTS 7.5)</span>
-              <div class="lang-bar"><div class="lang-fill" style="width:95%"></div></div>
-            </div>
-            <div class="lang-item">
-              <span class="lang-name" data-en="Hindi" data-jp="ヒンディー語">Hindi</span>
-              <span class="lang-level" data-en="Business" data-jp="ビジネスレベル">Business</span>
-              <div class="lang-bar"><div class="lang-fill" style="width:70%"></div></div>
-            </div>
-            <div class="lang-item">
-              <span class="lang-name" data-en="Nepali" data-jp="ネパール語">Nepali</span>
-              <span class="lang-level" data-en="Native" data-jp="ネイティブ">Native</span>
-              <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-    <!-- Writing (auto-baked from Medium RSS) -->
-  <section id="writing" class="section">
-    <div class="container">
-      <h2 class="section-title" data-en="Writing" data-jp="記事">Writing</h2>
-      <p class="section-intro" data-en="Technical writing on systems engineering, AI tooling, and developer infrastructure." data-jp="システムエンジニアリング、AIツール、開発者インフラに関する技術記事。">Technical writing on systems engineering, AI tooling, and developer infrastructure.</p>
-      <ul class="writing-list">
+      <h2 class="section-title" id="writing-title"><span data-en="Writing" data-jp="技術記事">Writing</span><span class="sign-alt" lang="ja" aria-hidden="true" data-en="技術記事" data-jp="Writing">技術記事</span></h2>
+      <p class="section-intro" data-en="From my Medium series on running AI coding agents like production infrastructure: routing, cost, privacy, CI." data-jp="AIコーディングエージェントを本番インフラのように運用するMedium連載より（ルーティング、コスト、プライバシー、CI）。">From my Medium series on running AI coding agents like production infrastructure: routing, cost, privacy, CI.</p>
+      <ul class="writing-list" role="list" lang="en">
         {{MEDIUM_POSTS_HTML}}
       </ul>
-      <p class="writing-cta"><a href="https://medium.com/@subash.niroula4455" target="_blank" class="btn btn-secondary" data-en="All posts on Medium →" data-jp="Mediumで全記事を見る →">All posts on Medium →</a></p>
+      <p class="more-link"><a class="ext" href="https://medium.com/@subash.niroula4455" target="_blank" rel="noopener" data-en="All posts on Medium" data-jp="Mediumで全記事を見る">All posts on Medium</a></p>
     </div>
   </section>
 
-  <!-- FAQ (AI-askable — answers mirror the FAQPage JSON-LD) -->
-  <section id="faq" class="section">
+  <!-- Education, certification, languages -->
+  <section id="education" class="section" aria-labelledby="education-title">
     <div class="container">
-      <h2 class="section-title" data-en="FAQ" data-jp="よくある質問">FAQ</h2>
+      <h2 class="section-title" id="education-title"><span data-en="Education" data-jp="学歴・資格">Education</span><span class="sign-alt" lang="ja" aria-hidden="true" data-en="学歴・資格" data-jp="Education">学歴・資格</span></h2>
+      <ol class="route route-edu" role="list">
+        <li class="stop" data-region="jp">
+          <span class="code code-wip" aria-hidden="true"><b>GT</b>MS</span>
+          <div>
+            <p class="stop-date" data-en="2026 – 2028 (expected), alongside work" data-jp="2026年 – 2028年（修了予定・在職中に履修）">2026 – 2028 (expected), alongside work</p>
+            <h3 data-en="MS in Computer Science (OMSCS)" data-jp="コンピュータサイエンス修士課程（OMSCS）">MS in Computer Science (OMSCS)</h3>
+            <p class="stop-role" data-en="Georgia Institute of Technology" data-jp="ジョージア工科大学">Georgia Institute of Technology</p>
+            <p class="edu-meta" data-en="Coursework: Database Systems, GPU Software/Hardware" data-jp="履修科目：データベースシステム、GPUソフトウェア/ハードウェア">Coursework: Database Systems, GPU Software/Hardware</p>
+          </div>
+        </li>
+        <li class="stop" data-region="jp">
+          <span class="code code-3" aria-hidden="true"><b>AWS</b>DVA</span>
+          <div>
+            <p class="stop-date" data-en="Apr 2026" data-jp="2026年4月">Apr 2026</p>
+            <h3 data-en="AWS Certified Developer – Associate" data-jp="AWS認定デベロッパー – アソシエイト">AWS Certified Developer – Associate</h3>
+          </div>
+        </li>
+        <li class="stop" data-region="np" data-cross>
+          <span class="code" aria-hidden="true"><b>SN</b>01</span>
+          <div>
+            <p class="stop-date" data-en="2015 – 2019" data-jp="2015年 – 2019年">2015 – 2019</p>
+            <h3 data-en="B.Eng. Computer Engineering" data-jp="学士（コンピュータ工学）">B.Eng. Computer Engineering</h3>
+            <p class="stop-role" data-en="Pokhara University (Nepal Engineering College)" data-jp="ポカラ大学（Nepal Engineering College）">Pokhara University (Nepal Engineering College)</p>
+            <p class="edu-meta" lang="en">GPA 3.7 / 4.0</p>
+            <h4 class="stop-sub" data-en="Thesis" data-jp="卒業論文">Thesis</h4>
+            <p class="edu-thesis" data-en="Breast cancer prediction from microarray genomic data: ensemble classifiers with cross-validation" data-jp="マイクロアレイゲノムデータによる乳がん予測：アンサンブル分類器と交差検証">Breast cancer prediction from microarray genomic data: ensemble classifiers with cross-validation</p>
+            <p class="edu-meta"><a class="ext" href="https://github.com/subash1999/NEC-Study-and-Analysis-of-Breast-Cancer-Using-Genomics" target="_blank" rel="noopener" data-en="Code on GitHub" data-jp="GitHubでコードを見る">Code on GitHub</a></p>
+          </div>
+        </li>
+      </ol>
+
+      <h3 class="sub-title"><span data-en="Languages" data-jp="言語能力">Languages</span><span class="sign-alt" lang="ja" aria-hidden="true" data-en="言語能力" data-jp="Languages">言語能力</span></h3>
+      <ul class="langs" role="list">
+        <li><span class="lang-native" lang="en">English</span><span class="lang-level" data-en="Fluent (IELTS 7.5)" data-jp="流暢（IELTS 7.5）">Fluent (IELTS 7.5)</span></li>
+        <li><span class="lang-native" lang="ja">日本語</span><span class="lang-level" data-en="Japanese, business level" data-jp="日本語（ビジネスレベル）">Japanese, business level</span></li>
+        <li><span class="lang-native" lang="ne">नेपाली</span><span class="lang-level" data-en="Nepali, native" data-jp="ネパール語（母語）">Nepali, native</span></li>
+        <li><span class="lang-native" lang="hi">हिन्दी</span><span class="lang-level" data-en="Hindi, business level" data-jp="ヒンディー語（ビジネスレベル）">Hindi, business level</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="section" aria-labelledby="skills-title">
+    <div class="container">
+      <h2 class="section-title" id="skills-title"><span data-en="Skills" data-jp="スキル">Skills</span><span class="sign-alt" lang="ja" aria-hidden="true" data-en="スキル" data-jp="Skills">スキル</span></h2>
+      <dl class="skills">
+        <div><dt data-en="AI &amp; Agents" data-jp="AI・エージェント">AI &amp; Agents</dt><dd><ul class="tags" role="list" lang="en"><li>Claude Code</li> <li>MCP servers</li> <li>Multi-model routing</li> <li>Agentic tooling</li> <li>Prompt engineering</li></ul></dd></div>
+        <div><dt data-en="Programming" data-jp="プログラミング言語">Programming</dt><dd><ul class="tags" role="list" lang="en"><li>TypeScript</li> <li>JavaScript</li> <li>Java</li> <li>Python</li> <li>Go</li> <li>PHP</li> <li>Dart</li></ul></dd></div>
+        <div><dt data-en="Frontend" data-jp="フロントエンド">Frontend</dt><dd><ul class="tags" role="list" lang="en"><li>React</li> <li>Next.js</li> <li>Angular</li> <li>React Native</li> <li>Expo</li> <li>Flutter</li> <li>Tailwind CSS</li></ul></dd></div>
+        <div><dt data-en="Backend" data-jp="バックエンド">Backend</dt><dd><ul class="tags" role="list" lang="en"><li>Spring Boot</li> <li>Node.js</li> <li>Express</li> <li>Hono</li> <li>Django</li> <li>Laravel</li></ul></dd></div>
+        <div><dt data-en="Data" data-jp="データベース">Data</dt><dd><ul class="tags" role="list" lang="en"><li>MySQL</li> <li>PostgreSQL</li> <li>MSSQL</li> <li>DynamoDB</li> <li>Supabase</li></ul></dd></div>
+        <div><dt data-en="Cloud &amp; DevOps" data-jp="クラウド・DevOps">Cloud &amp; DevOps</dt><dd><ul class="tags" role="list" lang="en"><li>AWS</li> <li>Docker</li> <li>Jenkins</li> <li>Cloudflare Workers</li> <li>Vercel</li> <li>GitHub Actions</li></ul></dd></div>
+        <div><dt data-en="Other" data-jp="その他">Other</dt><dd><ul class="tags" role="list" lang="en"><li>Camunda BPMN</li> <li>Playwright</li> <li>MUI</li> <li>Live2D</li> <li>Rive</li></ul></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- FAQ (AI-askable — visible text mirrors the FAQPage JSON-LD exactly) -->
+  <section id="faq" class="section" aria-labelledby="faq-title">
+    <div class="container">
+      <h2 class="section-title section-title-small" id="faq-title"><span data-en="FAQ" data-jp="よくある質問">FAQ</span><span class="sign-alt" lang="ja" aria-hidden="true" data-en="よくある質問" data-jp="FAQ">よくある質問</span></h2>
       <div class="faq-list">
-        <div class="faq-item">
-          <h3 data-en="Who is Subash Niroula?" data-jp="ニロウラ・スバスとは？">Who is Subash Niroula?</h3>
-          <p data-en="Subash Niroula is a Senior Full-Stack Engineer based in Tokyo, Japan, with {{YEARS_EXP}} years of experience building enterprise products from 0 to 1. He works across React, Spring Boot, Next.js, and Go, and is pursuing an MS in Computer Science at Georgia Tech." data-jp="ニロウラ・スバスは東京在住のシニアフルスタックエンジニアで、{{YEARS_EXP}}年以上にわたり企業向けプロダクトを0から1で構築してきました。React、Spring Boot、Next.js、Goを扱い、ジョージア工科大学でコンピュータサイエンスの修士課程に在籍しています。">Subash Niroula is a Senior Full-Stack Engineer based in Tokyo, Japan, with {{YEARS_EXP}} years of experience building enterprise products from 0 to 1. He works across React, Spring Boot, Next.js, and Go, and is pursuing an MS in Computer Science at Georgia Tech.</p>
-        </div>
-        <div class="faq-item">
-          <h3 data-en="What does Subash Niroula specialize in?" data-jp="ニロウラ・スバスの専門は？">What does Subash Niroula specialize in?</h3>
-          <p data-en="He specializes in full-stack product development from architecture through deployment and operations, including microservices, workflow automation with Camunda BPMN, and performance optimization such as cutting heavy SQL queries from 5 minutes to under 5 seconds on millions of records." data-jp="アーキテクチャ設計からデプロイ・運用まで、フルスタックのプロダクト開発を専門としています。マイクロサービス、Camunda BPMNによるワークフロー自動化、数百万レコードに対する複雑なSQLクエリを5分から5秒未満に短縮するなどのパフォーマンス最適化を手がけています。">He specializes in full-stack product development from architecture through deployment and operations, including microservices, workflow automation with Camunda BPMN, and performance optimization such as cutting heavy SQL queries from 5 minutes to under 5 seconds on millions of records.</p>
-        </div>
-        <div class="faq-item">
-          <h3 data-en="What technologies and languages does Subash work with?" data-jp="ニロウラ・スバスが扱う技術・言語は？">What technologies and languages does Subash work with?</h3>
+        <details class="faq-item">
+          <summary data-en="Who is Subash Niroula?" data-jp="ニロウラ・スバスとは？">Who is Subash Niroula?</summary>
+          <p data-en="Subash Niroula is a Senior Full-Stack Engineer based in Tokyo, Japan, with {{YEARS_EXP}} years of experience building enterprise systems end to end. He works across React, Spring Boot, Next.js, and AWS, and is pursuing an MS in Computer Science at Georgia Tech." data-jp="ニロウラ・スバスは東京を拠点とするシニアフルスタックエンジニアです。エンジニア歴は{{YEARS_EXP_JA}}で、企業向けシステムを設計から運用まで一貫して構築してきました。React、Spring Boot、Next.js、AWSを扱い、ジョージア工科大学でコンピュータサイエンスの修士課程に在籍しています。">Subash Niroula is a Senior Full-Stack Engineer based in Tokyo, Japan, with {{YEARS_EXP}} years of experience building enterprise systems end to end. He works across React, Spring Boot, Next.js, and AWS, and is pursuing an MS in Computer Science at Georgia Tech.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-en="What does Subash Niroula specialize in?" data-jp="ニロウラ・スバスの専門は？">What does Subash Niroula specialize in?</summary>
+          <p data-en="He specializes in full-stack product development from architecture through deployment and operations, including microservices, workflow automation with Camunda BPMN, and performance optimization such as cutting heavy SQL queries from 5 minutes to under 5 seconds on millions of records." data-jp="アーキテクチャ設計からデプロイ・運用まで、フルスタックのプロダクト開発を専門としています。マイクロサービス、Camunda BPMNによるワークフロー自動化、数百万レコードに対する複雑なSQLクエリの実行時間を5分から5秒未満に短縮するなどのパフォーマンス最適化を手がけています。">He specializes in full-stack product development from architecture through deployment and operations, including microservices, workflow automation with Camunda BPMN, and performance optimization such as cutting heavy SQL queries from 5 minutes to under 5 seconds on millions of records.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-en="What technologies and languages does Subash work with?" data-jp="ニロウラ・スバスが扱う技術・言語は？">What technologies and languages does Subash work with?</summary>
           <p data-en="TypeScript, JavaScript, Java, Python, and Go; React, Next.js, Angular, React Native, and Flutter on the frontend; Spring Boot, Node.js, Express, and Django on the backend; with AWS, Docker, Cloudflare Workers, and PostgreSQL or MySQL databases." data-jp="TypeScript、JavaScript、Java、Python、Go。フロントエンドはReact、Next.js、Angular、React Native、Flutter。バックエンドはSpring Boot、Node.js、Express、Django。AWS、Docker、Cloudflare Workers、PostgreSQLやMySQLを使用します。">TypeScript, JavaScript, Java, Python, and Go; React, Next.js, Angular, React Native, and Flutter on the frontend; Spring Boot, Node.js, Express, and Django on the backend; with AWS, Docker, Cloudflare Workers, and PostgreSQL or MySQL databases.</p>
-        </div>
-        <div class="faq-item">
-          <h3 data-en="Does Subash work with AI, LLMs, and Claude / multi-agent systems?" data-jp="AI・LLM・Claude・マルチエージェントの経験は？">Does Subash work with AI, LLMs, and Claude / multi-agent systems?</h3>
-          <p data-en="Yes — Subash builds AI-powered systems and developer tooling: multi-agent orchestration, Claude and Claude Code workflows, MCP (Model Context Protocol) tools and servers, and LLM features integrated into full-stack apps. He benchmarked 9 local LLMs and built an MCP bridge to cut AI-agent costs (written up on Medium), and works with retrieval (RAG), agent design, and prompt engineering." data-jp="はい。AIを活用したシステムと開発者向けツールを構築しています。マルチエージェントのオーケストレーション、ClaudeおよびClaude Codeのワークフロー、MCP（Model Context Protocol）ツール・サーバー、フルスタックアプリへのLLM機能の統合などです。9種類のローカルLLMをベンチマークし、AIエージェントのコストを削減するMCPブリッジを開発（Mediumに掲載）。RAG、エージェント設計、プロンプトエンジニアリングにも取り組んでいます。">Yes — Subash builds AI-powered systems and developer tooling: multi-agent orchestration, Claude and Claude Code workflows, MCP (Model Context Protocol) tools and servers, and LLM features integrated into full-stack apps. He benchmarked 9 local LLMs and built an MCP bridge to cut AI-agent costs (written up on Medium), and works with retrieval (RAG), agent design, and prompt engineering.</p>
-        </div>
-        <div class="faq-item">
-          <h3 data-en="How can I contact or collaborate with Subash?" data-jp="連絡・協業するには？">How can I contact or collaborate with Subash?</h3>
+        </details>
+        <details class="faq-item">
+          <summary data-en="What is Subash Niroula's experience with AI, LLMs, and Claude / multi-agent systems?" data-jp="AI・LLM・Claude・マルチエージェントの経験は？">What is Subash Niroula's experience with AI, LLMs, and Claude / multi-agent systems?</summary>
+          <p data-en="Subash builds AI-powered systems and developer tooling: multi-agent orchestration, Claude and Claude Code workflows, MCP (Model Context Protocol) tools and servers, and LLM features integrated into full-stack apps. He benchmarked 9 local LLMs and built an MCP bridge to cut AI-agent costs (published on Medium), and works with retrieval-augmented generation (RAG), agent design, and prompt engineering." data-jp="AIを活用したシステムと開発者向けツールを構築しています。マルチエージェントのオーケストレーション、ClaudeおよびClaude Codeのワークフロー、MCP（Model Context Protocol）ツール・サーバー、フルスタックアプリへのLLM機能の統合などです。9種類のローカルLLMをベンチマークし、AIエージェントのコストを削減するMCPブリッジを開発（Mediumに掲載）。RAG、エージェント設計、プロンプトエンジニアリングにも取り組んでいます。">Subash builds AI-powered systems and developer tooling: multi-agent orchestration, Claude and Claude Code workflows, MCP (Model Context Protocol) tools and servers, and LLM features integrated into full-stack apps. He benchmarked 9 local LLMs and built an MCP bridge to cut AI-agent costs (published on Medium), and works with retrieval-augmented generation (RAG), agent design, and prompt engineering.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-en="How can I contact or collaborate with Subash Niroula?" data-jp="連絡するには？">How can I contact or collaborate with Subash Niroula?</summary>
           <p data-en="The best way to reach Subash is on LinkedIn. He's always glad to talk shop with other engineers, swap notes on full-stack and AI tooling, and hear about interesting technical problems." data-jp="連絡はLinkedInが最適です。エンジニア同士の技術談義、フルスタックやAIツールに関する情報交換、興味深い技術課題の相談はいつでも歓迎します。">The best way to reach Subash is on LinkedIn. He's always glad to talk shop with other engineers, swap notes on full-stack and AI tooling, and hear about interesting technical problems.</p>
-        </div>
-        <div class="faq-item">
-          <h3 data-en="Where is Subash based and what languages does he speak?" data-jp="拠点と話せる言語は？">Where is Subash based and what languages does he speak?</h3>
-          <p data-en="He is based in Tokyo, Japan. He speaks English (IELTS 7.5), Japanese (JLPT N2 equivalent), Hindi, and native Nepali." data-jp="東京を拠点としています。英語（IELTS 7.5）、日本語（JLPT N2相当）、ヒンディー語、そして母語のネパール語を話します。">He is based in Tokyo, Japan. He speaks English (IELTS 7.5), Japanese (JLPT N2 equivalent), Hindi, and native Nepali.</p>
-        </div>
+        </details>
+        <details class="faq-item">
+          <summary data-en="Where is Subash based and what languages does he speak?" data-jp="拠点と話せる言語は？">Where is Subash based and what languages does he speak?</summary>
+          <p data-en="He is based in Tokyo, Japan. He speaks English (IELTS 7.5), Japanese (business level), Hindi (business level), and native Nepali." data-jp="東京を拠点としています。英語（IELTS 7.5）、日本語（ビジネスレベル）、ヒンディー語（ビジネスレベル）、そして母語のネパール語を話します。">He is based in Tokyo, Japan. He speaks English (IELTS 7.5), Japanese (business level), Hindi (business level), and native Nepali.</p>
+        </details>
       </div>
     </div>
   </section>
-
   <!-- Contact -->
-  <section id="contact" class="section section-alt">
-    <div class="container contact-section">
-      <h2 class="section-title" data-en="Get In Touch" data-jp="お問い合わせ">Get In Touch</h2>
-      <p class="contact-desc" data-en="I'm always glad to connect with other engineers and talk through interesting problems — full-stack, AI tooling, or systems work. The best way to reach me is on LinkedIn." data-jp="エンジニアの方とのつながりや、フルスタック・AIツール・システム開発などの面白い課題について話すのはいつでも歓迎です。連絡はLinkedInが最適です。">I'm always glad to connect with other engineers and talk through interesting problems — full-stack, AI tooling, or systems work. The best way to reach me is on LinkedIn.</p>
-      <div class="contact-links">
-        <a href="https://www.linkedin.com/in/subash-niroula-9a2734181/" target="_blank" class="btn btn-primary">Connect on LinkedIn</a>
-        <a href="https://github.com/subash1999" target="_blank" class="btn btn-secondary">GitHub</a>
-        <a href="https://medium.com/@subash.niroula4455" target="_blank" class="btn btn-secondary">Medium</a>
+  <section id="contact" class="section section-contact" aria-labelledby="contact-title">
+    <div class="container">
+      <h2 class="section-title" id="contact-title"><span data-en="Contact" data-jp="連絡先">Contact</span><span class="sign-alt" lang="ja" aria-hidden="true" data-en="連絡先" data-jp="Contact">連絡先</span></h2>
+      <p class="contact-lead" data-en="If you're running AI coding agents on a real codebase, or chasing a slow query in a Spring Boot service, I'd like to compare notes. I read and reply to LinkedIn messages." data-jp="AIコーディングエージェントを実際のコードベースで運用している方や、Spring Bootの遅いクエリと向き合っている方と、ぜひ情報交換したいです。LinkedInのメッセージには目を通して返信しています。">If you're running AI coding agents on a real codebase, or chasing a slow query in a Spring Boot service, I'd like to compare notes. I read and reply to LinkedIn messages.</p>
+      <div class="hero-links">
+        <a href="https://www.linkedin.com/in/subash-niroula-9a2734181/" target="_blank" rel="noopener me" class="btn btn-primary" data-en="Connect on LinkedIn" data-jp="LinkedInでつながる">Connect on LinkedIn</a>
       </div>
     </div>
   </section>
-
   </main>
 
   <footer class="footer">
-    <div class="container">
-      <p>&copy; {{CURRENT_YEAR}} Subash Niroula. Built with HTML & CSS.</p>
+    <div class="container footer-row">
+      <p>&copy; {{CURRENT_YEAR}} Subash Niroula</p>
+      <p><span data-en="Updated" data-jp="最終更新">Updated</span> <time datetime="{{LAST_UPDATED}}">{{LAST_UPDATED}}</time></p>
     </div>
   </footer>
 
   <script>
-    // Theme: system default (prefers-color-scheme), toggle light/dark, persist choice
     const root = document.documentElement;
+    const store = {
+      get: k => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+      set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} },
+    };
+
+    // Theme: head script applies a saved choice; otherwise follow the system
     const themeToggle = document.getElementById('theme-toggle');
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light' || savedTheme === 'dark') {
-      root.setAttribute('data-theme', savedTheme);
-    }
     const effectiveTheme = () =>
       root.getAttribute('data-theme') ||
-      (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    const syncTheme = () => {
+      const dark = effectiveTheme() === 'dark';
+      themeToggle.setAttribute('aria-pressed', dark);
+      document.querySelectorAll('meta[name=theme-color]').forEach(m => { m.content = dark ? '#121417' : '#ffffff'; });
+    };
+    syncTheme();
+    matchMedia('(prefers-color-scheme: light)').addEventListener('change', syncTheme);
     themeToggle.addEventListener('click', () => {
       const next = effectiveTheme() === 'dark' ? 'light' : 'dark';
       root.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
+      store.set('theme', next);
+      syncTheme();
     });
 
-    // Language toggle
-    const toggle = document.getElementById('lang-toggle');
-    let isJP = false;
-    toggle.addEventListener('click', () => {
-      isJP = !isJP;
-      toggle.textContent = isJP ? 'EN' : 'JP';
-      document.documentElement.lang = isJP ? 'ja' : 'en';
+    // Language: swap textContent from data-en / data-jp, remember the choice
+    const langToggle = document.getElementById('lang-toggle');
+    const setLang = jp => {
+      root.lang = jp ? 'ja' : 'en';
+      langToggle.textContent = jp ? 'English' : '日本語';
+      langToggle.lang = jp ? 'en' : 'ja';
+      document.title = jp ? 'ニロウラ・スバス — シニアフルスタックエンジニア（東京）' : 'Subash Niroula — Senior Full-Stack Engineer in Tokyo';
+      themeToggle.setAttribute('aria-label', jp ? 'ダークモード' : 'Dark mode');
+      document.querySelector('.strip').setAttribute('aria-label', jp ? '経歴ルート（2015年〜現在）' : 'Career route, 2015 to now');
+      themeToggle.title = themeToggle.getAttribute('aria-label');
+      document.querySelectorAll('.sign-alt').forEach(s => { s.lang = jp ? 'en' : 'ja'; });
       document.querySelectorAll('[data-en]').forEach(el => {
-        el.textContent = isJP ? el.dataset.jp : el.dataset.en;
+        el.textContent = jp ? el.dataset.jp : el.dataset.en;
       });
+    };
+    if (store.get('lang') === 'ja') setLang(true);
+    langToggle.addEventListener('click', () => {
+      const jp = root.lang !== 'ja';
+      setLang(jp);
+      store.set('lang', jp ? 'ja' : 'en');
     });
 
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        e.preventDefault();
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-
-    // Scroll reveal
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.section, .timeline-item, .project-card, .highlight-card').forEach(el => observer.observe(el));
   </script>
-  <footer class="site-footer">
-    <div class="container" style="text-align:center; font-size:0.85em; opacity:0.6; padding:1rem 0;">
-      <span data-en="Last updated" data-jp="最終更新">Last updated</span> <time datetime="{{LAST_UPDATED}}">{{LAST_UPDATED}}</time> · <span data-en="Latest commit" data-jp="最新コミット">Latest commit</span> <time>{{GH_LATEST_PUSH_REL}}</time>
-    </div>
-  </footer>
 </body>
 </html>
