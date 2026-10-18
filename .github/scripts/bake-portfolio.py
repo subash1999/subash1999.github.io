@@ -152,4 +152,13 @@ try:
 except FileNotFoundError:
     print('  sitemap.xml not found — skipped lastmod refresh')
 
+# ---- llms.txt has no template; keep its "N+ years" in step with CAREER_START ----
+with open('llms.txt') as f:
+    llms = f.read()
+llms_new = re.sub(r'\d+\+ years', f'{years_exp} years', llms)
+if llms_new != llms:
+    with open('llms.txt', 'w') as f:
+        f.write(llms_new)
+    print(f'  llms.txt years -> {years_exp}')
+
 print(f'baked: years_exp={years_exp} years_axa={years_axa} repos={public_repos} stars={total_stars} latest={gh_latest_push_rel} medium_count={medium_count}')
